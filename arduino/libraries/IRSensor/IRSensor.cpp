@@ -7,7 +7,8 @@ IRSensor::IRSensor(int pin)
 	pinMode(sensorPin, INPUT);
 }
 
-float IRSensor::voltageToDistance() {
+float IRSensor::voltageToDistance()
+{
   int input = analogRead(sensorPin);
   float inputVoltage = input*0.0048828125;
   float points [14][2] = {

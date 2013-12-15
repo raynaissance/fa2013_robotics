@@ -1,8 +1,4 @@
 #include "Robot.h"
-extern "C" {
-#include <wiringPi.h>
-}
-#include <softPwm.h>
 
 Robot::Robot()
 {
@@ -13,7 +9,8 @@ Robot::Robot()
 	rightWheel = new DCMotor(3,4);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
-	//visionServo = new ServoMotor();
+	//sonarServo = new ServoMotor();
+	sonar = new SonarSensor(5);
 
 	// TODO:: Initialize claw system: servo, flex senesor
 
@@ -34,7 +31,13 @@ void Robot::moveForward(int velocity)
 
 void Robot::moveBackward(int velocity)
 {
-
+	if(velocity > 0) {
+		leftWheel->moveWheel((-1)*velocity);
+		rightWheel->moveWheel((-1)*velocity);
+	} else {
+		leftWheel->moveWheel(velocity));
+		rightWheel->moveWheel(velocity));
+	}
 }
 
 void Robot::turnLeft(int speed)
@@ -57,9 +60,9 @@ void Robot::spinRight(int leftSpeed, int rightSpeed)
 
 }
 
-void Robot::lookForward()
+int Robot::lookForward()
 {
-
+	return sonar->ping();
 }
 
 void Robot::lookLeft()

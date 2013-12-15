@@ -10,11 +10,9 @@ class SonarSensor
 {
   public:
     SonarSensor(int pin);
-    void ping();
-    //int getDistance();
+    int ping();
   private:
     int trigger;
-    int lastRawData;
     int lastDistance;
 };
 

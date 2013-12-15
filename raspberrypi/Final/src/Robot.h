@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <wiringPi.h>
+#include <softPwm.h>
 #include "./actuators/DCMotor/DCMotor.h"
 
 #define FORWARD 1
@@ -20,15 +22,15 @@ class Robot
     void turnRight(int speed);
     void spinLeft(int leftSpeed, int rightSpeed);
     void spinRight(int leftSpeed, int rightSpeed);
-    void lookForward();
+    int lookForward();
     void lookLeft();
     void lookRight();
 
     DCMotor *leftWheel;
     DCMotor *rightWheel;
-    /*ServoMotor *visionServo;
-    SonarSensor sonar;
-    Camera camera;
+    //ServoMotor *sonarServo;
+    SonarSensor *sonar;
+    /*Camera camera;
     FlexSensor flex;
     CompassModule compass;*/
   private:

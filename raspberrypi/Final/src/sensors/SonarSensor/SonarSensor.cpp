@@ -2,7 +2,17 @@
 
 SonarSensor::SonarSensor(int pin)
 {
-    /*trigger = pin;
+    trigger = pin;
+}
+
+
+/**
+@method ping
+@param None
+@return {long} Returns distance (in centimeters) from a detected object
+*/
+int SonarSensor::ping()
+{
     pinMode(trigger, OUTPUT);
     digitalWrite(trigger, LOW);
     delay(30);
@@ -11,22 +21,17 @@ SonarSensor::SonarSensor(int pin)
     digitalWrite(trigger, LOW);
     pinMode(trigger, INPUT);
  
-    //Wait for echo start
+    // Wait for echo start
     while(digitalRead(trigger) == LOW);
 
-    //Wait for echo end
+    // Wait for echo end
     long startTime = micros();
     while(digitalRead(trigger) == HIGH);
     long travelTime = micros() - startTime;
 
-    //Get distance in cm
-    int distance = travelTime / 58;
+    // Get distance in cm
+    int distance = (int)travelTime / 58;
 
-    return distance;*/
-}
-
-void SonarSensor::ping()
-{
-    /*softPwmWrite (motorA, 0); // set pwm value
-    softPwmWrite (motorB, 0); // set pwm value*/
+    lastDistance = distance;
+    return distance;
 }
