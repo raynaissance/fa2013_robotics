@@ -6,6 +6,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include "./actuators/DCMotor/DCMotor.h"
+#include "./sensors/SonarSensor/SonarSensor.h"
 
 #define FORWARD 1
 #define REVERSE 0
