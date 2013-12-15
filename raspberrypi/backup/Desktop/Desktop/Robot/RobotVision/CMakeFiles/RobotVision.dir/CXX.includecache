@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Desktop/RobotVision/main.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+fcntl.h
+-
+termios.h
+-
+iostream
+-
+fstream
+-
+sstream
+-
+time.h
+/home/pi/Desktop/RobotVision/time.h
+opencv2/core/core.hpp
+/home/pi/Desktop/RobotVision/opencv2/core/core.hpp
+opencv2/contrib/contrib.hpp
+/home/pi/Desktop/RobotVision/opencv2/contrib/contrib.hpp
+opencv2/highgui/highgui.hpp
+/home/pi/Desktop/RobotVision/opencv2/highgui/highgui.hpp
+opencv2/imgproc/imgproc.hpp
+/home/pi/Desktop/RobotVision/opencv2/imgproc/imgproc.hpp
+opencv2/objdetect/objdetect.hpp
+/home/pi/Desktop/RobotVision/opencv2/objdetect/objdetect.hpp
+opencv2/opencv.hpp
+-
+

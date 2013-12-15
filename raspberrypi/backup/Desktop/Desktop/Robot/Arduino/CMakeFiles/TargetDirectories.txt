@@ -1,0 +1,1 @@
+/home/pi/Desktop/arduino/CMakeFiles/arduino.dir
