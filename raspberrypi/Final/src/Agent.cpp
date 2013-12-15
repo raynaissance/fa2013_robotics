@@ -20,7 +20,7 @@ int main(void) {
 
 		if(counter%1000 == 0) {
 			distance = bot->lookForward();
-			printf("Distance: %dcm\n", distance());
+			printf("Distance: %dcm\n", distance);
 		}
 		counter++;
 	}
