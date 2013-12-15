@@ -35,8 +35,8 @@ void Robot::moveBackward(int velocity)
 		leftWheel->moveWheel((-1)*velocity);
 		rightWheel->moveWheel((-1)*velocity);
 	} else {
-		leftWheel->moveWheel(velocity));
-		rightWheel->moveWheel(velocity));
+		leftWheel->moveWheel(velocity);
+		rightWheel->moveWheel(velocity);
 	}
 }
 
