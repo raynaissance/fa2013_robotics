@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 #include <softPwm.h>
+#include "./actuators/ServoMotor/ServoMotor.h"
 #include "./actuators/DCMotor/DCMotor.h"
 #include "./sensors/SonarSensor/SonarSensor.h"
 
