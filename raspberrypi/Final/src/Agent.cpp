@@ -12,7 +12,7 @@ int main(void) {
 	int distance = -1; 
 
 	while(true) {
-		if(counter > 10000) {
+		if(counter > 5000) {
 			bot->stop();
 		} else {
 			bot->moveForward(70);
