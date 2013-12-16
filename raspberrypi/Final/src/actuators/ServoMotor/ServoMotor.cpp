@@ -15,7 +15,7 @@ ServoMotor::ServoMotor(int servoNumber)
 
 void ServoMotor::goToAngle(int angle)
 {
-	fprintf(fp, std::string(servoNum) + "=" + std::string(angle) + "\n");
+	fprintf(fp, std::to_string(servoNum) + "=" + std::to_string(angle) + "\n");
 	delay(100);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
