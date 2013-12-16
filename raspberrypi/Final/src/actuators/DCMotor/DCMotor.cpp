@@ -11,6 +11,12 @@ DCMotor::DCMotor(int mA, int mB)
 
  	test1 = softPwmCreate (motorA, 100, 100); // (pin, initial value, pwm range)
  	test2 = softPwmCreate (motorB, 100, 100); // (pin, initial value, pwm range)
+
+	if (test1 != 0 || test2 != 0)
+	{
+		printf("Warning: error creating soft PWM! \n");
+		exit(1);
+	}
 }
 
 void DCMotor::stop()

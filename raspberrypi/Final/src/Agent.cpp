@@ -15,10 +15,10 @@ int main(void) {
 		if(counter > 100000) {
 			bot->stop();
 		} else {
-			bot->moveForward((int)(counter/100000*100));
+			bot->moveForward((int)((float)counter/100000*100));
 			if (counter % 1000 == 0)
 			{
-				printf("Speed: %d", (int)(counter/100000*100));
+				printf("Speed: %d", (int)((float)counter/100000*100));
 			}
 		}
 
