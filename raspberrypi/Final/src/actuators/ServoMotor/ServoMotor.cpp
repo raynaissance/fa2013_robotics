@@ -15,12 +15,13 @@ ServoMotor::ServoMotor(int servoNumber)
 
 void ServoMotor::goToAngle(int angle)
 {
-	std::ostringstream ssServoNum;
-	std::ostringstream ssAngle;
-	ssServoNum << servoNum;
-	ssAngle << angle;
+	//std::ostringstream ssServoNum;
+	//std::ostringstream ssAngle;
+	//ssServoNum << servoNum;
+	//ssAngle << angle;
+	//ssServoNum.rdbuf()
 
-	fprintf(fp, ssServoNum.rdbuf() + "=" + ssAngle.rdbuf() + "\n");
+	fprintf(fp, std::to_string(servoNum) + "=" + std::to_string(angle) + "\n");
 	delay(100);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
