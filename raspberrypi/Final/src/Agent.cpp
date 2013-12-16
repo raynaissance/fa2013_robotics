@@ -12,10 +12,10 @@ int main(void) {
 	int distance = -1; 
 
 	while(true) {
-		if(counter > 5000) {
+		if(counter > 100000) {
 			bot->stop();
 		} else {
-			bot->moveForward((int)(counter/5000.0*100));
+			bot->moveForward((int)(counter/100000*100));
 			printf("Count: %d", counter);
 		}
 
