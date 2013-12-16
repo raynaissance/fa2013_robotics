@@ -18,8 +18,8 @@ void ServoMotor::goToAngle(int angle)
 	if (angle < 150) { fprintf(fp, "0=75\n"); }
 	else { fprintf(fp, "0=150\n"); }
 	//fprintf(fp, "%d=%d\n", servoNum, angle);
+	fflush(fp);
 	delay(100);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
-	fflush(fp);
 }
