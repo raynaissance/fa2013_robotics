@@ -25,4 +25,5 @@ void ServoMotor::goToAngle(int angle)
 	delay(100);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
+	fflush(fp);
 }
