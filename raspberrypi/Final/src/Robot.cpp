@@ -9,7 +9,7 @@ Robot::Robot()
 	rightWheel = new DCMotor(3,4);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
-	sonarServo = new ServoMotor(0); // Servo 0 = wiringPi pin 6
+	sonarServo = new ServoMotor(1); // Servo 1 = wiringPi pin 6
 	sonar = new SonarSensor(5);
 
 	// TODO:: Initialize claw system: servo, flex senesor
