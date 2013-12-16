@@ -18,7 +18,7 @@ int main(void) {
 			bot->moveForward((int)(counter/100000*100));
 			if (counter % 1000 == 0)
 			{
-				printf("Count: %d", counter);
+				printf("Speed: %d", (int)(counter/100000*100));
 			}
 		}
 
