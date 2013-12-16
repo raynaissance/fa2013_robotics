@@ -1,25 +1,3 @@
-#include "ServoMotor.h"
-
-ServoMotor::ServoMotor(int servoNumber)
-{
-	servoNum = servoNumber;
-	currentAngle = -1;
-
-	fp = fopen("/dev/servoblaster", "w");
-	if (fp == NULL)
-	{
-		printf("Error opening servoblaster file!\n");
-		exit(1);
-	}
-}
-
-void ServoMotor::goToAngle(int angle)
-{
-	fprintf(fp, std::string(servoNum) + "=" + std::string(angle));
-	currentAngle = angle;
-}
-
-
 /*#include <stdio.h>
 #include <stdlib.h>
 #include "wiringPi.h"
