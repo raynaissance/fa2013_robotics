@@ -10,20 +10,25 @@ int main(void) {
 	Robot* bot = new Robot();
 	int counter = 0;
 	int distance = -1; 
+	int lookDir = 0;
 
 	while(true) {
 		if(counter > 100000) {
 			bot->stop();
 		} else {
-			bot->moveForward((int)((float)counter/100000*100));
 			if (counter % 1000 == 0)
 			{
+				bot->moveForward((int)((float)counter/100000*100));
 				printf("Speed: %d", (int)((float)counter/100000*100));
 			}
 		}
 
 		if(counter%1000 == 0) {
-			distance = bot->lookForward();
+			if (lookDir % 4 == 0) { distance = bot->lookLeft(); }
+			if (lookDir % 4 == 1 || lookDir % 4 == 3) { distance = bot->lookForward(); }
+			if (lookDir % 4 == 2) { distance = bot->lookRight(); }
+			
+			lookDir++;
 			printf(", Distance: %dcm\n", distance);
 		}
 		counter++;

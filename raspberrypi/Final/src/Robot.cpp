@@ -9,7 +9,7 @@ Robot::Robot()
 	rightWheel = new DCMotor(3,4);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
-	//sonarServo = new ServoMotor();
+	sonarServo = new ServoMotor(0); // Servo 0 = wiringPi pin 6
 	sonar = new SonarSensor(5);
 
 	// TODO:: Initialize claw system: servo, flex senesor
@@ -62,15 +62,18 @@ void Robot::spinRight(int leftSpeed, int rightSpeed)
 
 int Robot::lookForward()
 {
+	sonarServo.goToAngle(90);
 	return sonar->ping();
 }
 
-void Robot::lookLeft()
+int Robot::lookLeft()
 {
-
+	sonarServo.goToAngle(0);
+	return sonar->ping();
 }
 
-void Robot::lookRight()
+int Robot::lookRight()
 {
-
+	sonarServo.goToAngle(180);
+	return sonar->ping();
 }

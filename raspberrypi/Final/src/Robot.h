@@ -24,12 +24,12 @@ class Robot
     void spinLeft(int leftSpeed, int rightSpeed);
     void spinRight(int leftSpeed, int rightSpeed);
     int lookForward();
-    void lookLeft();
-    void lookRight();
+    int lookLeft();
+    int lookRight();
 
     DCMotor *leftWheel;
     DCMotor *rightWheel;
-    //ServoMotor *sonarServo;
+    ServoMotor *sonarServo;
     SonarSensor *sonar;
     /*Camera camera;
     FlexSensor flex;

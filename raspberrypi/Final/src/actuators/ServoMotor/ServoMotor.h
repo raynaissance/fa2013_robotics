@@ -9,6 +9,7 @@ class ServoMotor
 {
 public:
 	ServoMotor(int servoNumber);
+	goToAngle(int angle);
 private:
 	int servoNum;
 	FILE *fp;
