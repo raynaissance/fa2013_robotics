@@ -2,7 +2,7 @@
 
 Robot::Robot()
 {
-	//wiringPiSetup();
+	wiringPiSetup();
 
 	// Initialize DCMotors for left and right wheels
 	leftWheel = new DCMotor(0,1);

@@ -14,11 +14,11 @@ int main(void) {
 
 	while(true) {
 		if(counter > 100000) {
-			//bot->stop();
+			bot->stop();
 		} else {
 			if (counter % 1000 == 0)
 			{
-				//bot->moveForward((int)((float)counter/100000*100));
+				bot->moveForward((int)((float)counter/100000*100));
 				printf("Speed: %d", (int)((float)counter/100000*100));
 			}
 		}
