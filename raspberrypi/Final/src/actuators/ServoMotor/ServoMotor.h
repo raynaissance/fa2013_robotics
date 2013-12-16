@@ -14,6 +14,6 @@ private:
 	int servoNum;
 	FILE *fp;
 	int currentAngle;
-}
+};
 
 #endif
