@@ -16,7 +16,7 @@ int main(void) {
 			bot->stop();
 		} else {
 			bot->moveForward((int)(counter/5000.0*100));
-			printf("Count: %d". counter);
+			printf("Count: %d", counter);
 		}
 
 		if(counter%1000 == 0) {
