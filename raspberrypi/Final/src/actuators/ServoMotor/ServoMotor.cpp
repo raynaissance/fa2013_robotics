@@ -21,7 +21,7 @@ void ServoMotor::goToAngle(int angle)
 	//ssAngle << angle;
 	//ssServoNum.rdbuf()
 
-	fprintf(fp, std::to_string(servoNum) + "=" + std::to_string(angle) + "\n");
+	fprintf(fp, "%d=%d\n", servoNum, angle);
 	delay(100);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
