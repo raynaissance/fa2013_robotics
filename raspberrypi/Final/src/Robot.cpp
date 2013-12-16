@@ -68,12 +68,12 @@ int Robot::lookForward()
 
 int Robot::lookLeft()
 {
-	sonarServo->goToAngle(50);
+	sonarServo->goToAngle(100);
 	return sonar->ping();
 }
 
 int Robot::lookRight()
 {
-	sonarServo->goToAngle(250);
+	sonarServo->goToAngle(180);
 	return sonar->ping();
 }
