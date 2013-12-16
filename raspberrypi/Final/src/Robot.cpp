@@ -62,18 +62,18 @@ void Robot::spinRight(int leftSpeed, int rightSpeed)
 
 int Robot::lookForward()
 {
-	sonarServo->goToAngle(0);
+	sonarServo->goToAngle(150);
 	return sonar->ping();
 }
 
 int Robot::lookLeft()
 {
-	sonarServo->goToAngle(500);
+	sonarServo->goToAngle(50);
 	return sonar->ping();
 }
 
 int Robot::lookRight()
 {
-	sonarServo->goToAngle(1000);
+	sonarServo->goToAngle(250);
 	return sonar->ping();
 }
