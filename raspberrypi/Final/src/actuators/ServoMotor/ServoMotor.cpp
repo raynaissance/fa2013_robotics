@@ -16,8 +16,9 @@ ServoMotor::ServoMotor(int servoNumber)
 void ServoMotor::goToAngle(int angle)
 {
 	fprintf(fp, "%d=%d\n", servoNum, angle);
-	fflush(fp);
 	delay(1000);
 	delay(abs(angle - currentAngle) * 2);
 	currentAngle = angle;
+		
+	fflush(fp);
 }
