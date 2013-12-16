@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sstream>
+#include <string>
+#include <iostream>
 #include "wiringPi.h"
 
 class ServoMotor
