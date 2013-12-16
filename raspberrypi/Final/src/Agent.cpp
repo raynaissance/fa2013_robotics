@@ -24,9 +24,9 @@ int main(void) {
 		}
 
 		if(counter%1000 == 0) {
-			if (lookDir % 4 == 0) { distance = bot->lookLeft(); }
-			if (lookDir % 4 == 1 || lookDir % 4 == 3) { distance = bot->lookForward(); }
-			if (lookDir % 4 == 2) { distance = bot->lookRight(); }
+			if (lookDir % 4 == 0) { distance = bot->lookLeft(); printf("Left"); }
+			if (lookDir % 4 == 1 || lookDir % 4 == 3) { distance = bot->lookForward(); printf("Forward"); }
+			if (lookDir % 4 == 2) { distance = bot->lookRight(); printf("Right"); }
 			
 			lookDir++;
 			printf(", Distance: %dcm\n", distance);
