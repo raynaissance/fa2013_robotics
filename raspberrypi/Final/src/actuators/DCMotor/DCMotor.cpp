@@ -21,8 +21,12 @@ DCMotor::DCMotor(int mA, int mB)
 
 void DCMotor::stop()
 {
-  	softPwmWrite (motorA, 0); // set pwm value
- 	softPwmWrite (motorB, 0); // set pwm value
+  	pinMode(motorA, OUTPUT);
+ 	pinMode(motorB, OUTPUT);
+ 	digitalWrite(motorA, LOW);
+ 	digitalWrite(motorB, LOW);
+ 	pinMode(motorA, PWM_OUTPUT);
+ 	pinMode(motorB, PWM_OUTPUT); 
 }
 
 void DCMotor::moveWheel(int velocity)
