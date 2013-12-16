@@ -12,15 +12,19 @@ int main(void) {
 	int distance = -1; 
 
 	while(true) {
-		if(counter > 5000) {
+		if(counter > 100000) {
 			bot->stop();
 		} else {
-			bot->moveForward(70);
+			bot->moveForward((int)(counter/100000*100));
+			if (counter % 1000 == 0)
+			{
+				printf("Speed: %d", (int)(counter/100000*100));
+			}
 		}
 
 		if(counter%1000 == 0) {
 			distance = bot->lookForward();
-			printf("Distance: %dcm\n", distance);
+			printf(", Distance: %dcm\n", distance);
 		}
 		counter++;
 	}
