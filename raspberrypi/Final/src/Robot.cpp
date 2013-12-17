@@ -13,6 +13,7 @@ Robot::Robot()
 	sonar = new SonarSensor(5);
 
 	// TODO:: Initialize claw system: servo, flex senesor
+	clawServo = new ServoMotor(1); // Servo 1 = wiringPi pin 7
 
 	// TODO:: Initialize compass
 }
@@ -76,4 +77,16 @@ int Robot::lookRight()
 {
 	sonarServo->goToAngle(180);
 	return sonar->ping();
+}
+
+void Robot::openClaw()
+{
+	clawServo->goToAngle(15);
+}
+
+void Robot::closeClaw()
+{
+	clawServo->goToAngle(0);
+}
+}
 }
