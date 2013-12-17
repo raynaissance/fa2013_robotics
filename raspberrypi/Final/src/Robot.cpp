@@ -5,8 +5,8 @@ Robot::Robot()
 	wiringPiSetup();
 
 	// Initialize DCMotors for left and right wheels
-	leftWheel = new DCMotor(0,1);
-	rightWheel = new DCMotor(3,4);
+	leftWheel = new DCMotor(0,3);
+	rightWheel = new DCMotor(1,4);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
 	sonarServo = new ServoMotor(0); // Servo 0 = wiringPi pin 6
