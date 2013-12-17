@@ -30,6 +30,7 @@ class Robot
 
     DCMotor *leftWheel;
     DCMotor *rightWheel;
+    ServoMotor *clawServo;
     ServoMotor *sonarServo;
     SonarSensor *sonar;
     /*Camera camera;
