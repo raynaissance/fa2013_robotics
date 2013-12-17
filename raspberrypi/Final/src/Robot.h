@@ -27,6 +27,8 @@ class Robot
     int lookForward();
     int lookLeft();
     int lookRight();
+    void openClaw();
+    void closeClaw();
 
     DCMotor *leftWheel;
     DCMotor *rightWheel;
