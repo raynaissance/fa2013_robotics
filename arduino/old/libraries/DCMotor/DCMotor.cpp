@@ -1,8 +1,6 @@
 #include "Arduino.h"
 #include "DCMotor.h"
 
-DCMotor::DCMotor() {}
-
 DCMotor::DCMotor(int mA, int mB, int mE)
 {
 	motorA = mA;
@@ -19,9 +17,9 @@ void DCMotor::stop()
   	digitalWrite(motorE, LOW);
 }
 
-void DCMotor::go(int speed, int direction)
+void DCMotor::moveMotor(int velocity)
 {
-	if (direction == FORWARD)
+	if (velocity > 0)
 	{
 		digitalWrite(motorA, HIGH);
 		digitalWrite(motorB, LOW);
@@ -29,5 +27,5 @@ void DCMotor::go(int speed, int direction)
 		digitalWrite(motorA, LOW);
 		digitalWrite(motorB, HIGH);
 	}
-	analogWrite(motorE, speed);
+	analogWrite(motorE, abs(velocity));
 }

@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "Robot.h"
 
 Robot::Robot()
@@ -5,11 +6,12 @@ Robot::Robot()
 	wiringPiSetup();
 
 	// Initialize DCMotors for left and right wheels
-	leftWheel = new DCMotor(0,19);
-	rightWheel = new DCMotor(4,5);
+	leftWheel = new DCMotor(7,8,6);
+	rightWheel = new DCMotor(12,13,5);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
-	sonar = new SonarSensor(7);
+	sonarServo.attach(3);
+	sonar = new SonarSensor(2);
 
 	// TODO:: Initialize claw system: servo, flex senesor
 
@@ -24,18 +26,18 @@ void Robot::stop()
 
 void Robot::moveForward(int velocity)
 {
-	leftWheel->moveWheel(velocity);
-	rightWheel->moveWheel(velocity);
+	leftWheel->moveMotor(abs(velocity));
+	rightWheel->moveMotor(abs(velocity));
 }
 
 void Robot::moveBackward(int velocity)
 {
 	if(velocity > 0) {
-		leftWheel->moveWheel(-velocity);
-		rightWheel->moveWheel(-velocity);
+		leftWheel->moveMotor(-velocity);
+		rightWheel->moveMotor(-velocity);
 	} else {
-		leftWheel->moveWheel(velocity);
-		rightWheel->moveWheel(velocity);
+		leftWheel->moveMotor(velocity);
+		rightWheel->moveMotor(velocity);
 	}
 }
 
@@ -51,29 +53,29 @@ void Robot::turnRight(int speed)
 
 void Robot::spinLeft(int leftSpeed, int rightSpeed)
 {
-	leftWheel->moveWheel((-1)*leftSpeed);
-	rightWheel->moveWheel(rightSpeed);
+	leftWheel->moveMotor((-1)*leftSpeed);
+	rightWheel->moveMotor(rightSpeed);
 
 }
 
 void Robot::spinRight(int leftSpeed, int rightSpeed)
 {
 	//leftWheel->moveWheel(leftSpeed);
-	rightWheel->moveWheel(-rightSpeed);
+	rightWheel->moveMotor(-rightSpeed);
 	//delay(300);
 }
 
-int Robot::lookForward()
+long Robot::lookForward()
 {
 	return sonar->ping();
 }
 
-int Robot::lookLeft()
+long Robot::lookLeft()
 {
 	return sonar->ping();
 }
 
-int Robot::lookRight()
+long Robot::lookRight()
 {
 	return sonar->ping();
 }

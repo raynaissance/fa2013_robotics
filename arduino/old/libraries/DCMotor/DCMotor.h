@@ -10,15 +10,15 @@
 class DCMotor
 {
   public:
-    DCMotor();
-    DCMotor(int mA, int mB, int mE);
+	DCMotor(int mA, int mB, int mE);
     void stop();
-    void go(int speed, int direction);
+    void moveMotor(int velocity);
   private:
-  	int motorA;
-  	int motorB;
-  	int motorE;
+	int motorA;
+	int motorB;
+	int motorE;
     int motorSpeed;
+    int motorDirection;
 };
 
 #endif

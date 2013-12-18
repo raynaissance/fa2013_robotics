@@ -1,12 +1,9 @@
 #ifndef Robot_h
 #define Robot_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <wiringPi.h>
-#include <softPwm.h>
-#include "./actuators/DCMotor/DCMotor.h"
-#include "./sensors/SonarSensor/SonarSensor.h"
+#include "Arduino.h"
+#include "../DCMotor/DCMotor.h"
+#include <Servo.h> 
 
 #define FORWARD 1
 #define REVERSE 0
@@ -27,10 +24,12 @@ class Robot
     int lookLeft();
     int lookRight();
 
-    DCMotor *leftWheel;
-    DCMotor *rightWheel;
-    SonarSensor *sonar;
-    /*Camera camera;
+    DCMotor* leftWheel;
+    DCMotor* rightWheel;
+    Servo sonarServo;
+    SonarSensor* sonar;
+
+    /*
     FlexSensor flex;
     CompassModule compass;*/
     

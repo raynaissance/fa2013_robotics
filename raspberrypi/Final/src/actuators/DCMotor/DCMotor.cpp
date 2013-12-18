@@ -32,7 +32,7 @@ void DCMotor::moveWheel(int velocity)
 		softPwmWrite (motorA, 100 - velocity);
 		softPwmWrite (motorB, 100);
 	} else {
+		softPwmWrite (motorB, 100 + velocity);
 		softPwmWrite (motorA, 100);
-		softPwmWrite (motorB, 100 - velocity);
 	}
 }

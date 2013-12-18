@@ -1,50 +1,53 @@
 #include "Arduino.h"
 #include "MotorController.h"
+#include "../DCMotor/DCMotor.cpp"
+
+MotorController::MotorController() {}
 
 MotorController::MotorController(int leftA, int leftB, int leftE, int rightA, int rightB, int rightE)
 {
-	this->leftWheel = new DCMotor(int leftA, int leftB, int leftE);
-	this->rightWheel = new DCMotor(int rightA, int rightB, int rightE);
+	leftWheel = new DCMotor(leftA, leftB, leftE);
+	rightWheel = new DCMotor(rightA, rightB, rightE);
 }
 
 void MotorController::stop()
 {
-  	leftWheel.stop();
-  	rightWheel.stop();
+  	leftWheel->stop();
+  	rightWheel->stop();
 }
 
 void MotorController::forward(int speed) 
 {
-	leftWheel.setWheelSpeed(speed, FORWARD);
-	rightWheel.setWheelSpeed(speed, FORWARD);
+	leftWheel->go(speed, FORWARD);
+	rightWheel->go(speed, FORWARD);
 }
 
 void MotorController::reverse(int speed)
 {
-	leftWheel.setWheelSpeed(speed, REVERSE);
-	rightWheel.setWheelSpeed(speed, REVERSE);
+	leftWheel->go(speed, REVERSE);
+	rightWheel->go(speed, REVERSE);
 }
 
 void MotorController::turnLeft(int speedL, int speedR)
 {
-	leftWheel.setWheelSpeed(speedL, FORWARD);
-	rightWheel.setWheelSpeed(speedR, FORWARD);
+	leftWheel->go(speedL, FORWARD);
+	rightWheel->go(speedR, FORWARD);
 }
 
 void MotorController::turnRight(int speedL, int speedR)
 {
-	leftWheel.setWheelSpeed(speedL, FORWARD);
-	rightWheel.setWheelSpeed(speedR, FORWARD);
+	leftWheel->go(speedL, FORWARD);
+	rightWheel->go(speedR, FORWARD);
 }
 
 void MotorController::spinLeft(int speed)
 {
-	leftWheel.setWheelSpeed(speed, REVERSE);
-	rightWheel.setWheelSpeed(speed, FORWARD);
+	leftWheel->go(speed, REVERSE);
+	rightWheel->go(speed, FORWARD);
 }
 
 void MotorController::spinRight(int speed)
 {
-	leftWheel.setWheelSpeed(speed, FORWARD);
-	rightWheel.setWheelSpeed(speed, REVERSE);
+	leftWheel->go(speed, FORWARD);
+	rightWheel->go(speed, REVERSE);
 }
