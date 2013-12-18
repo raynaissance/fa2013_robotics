@@ -26,9 +26,13 @@ class Robot
     int lookForward();
     int lookLeft();
     int lookRight();
+    void openClaw();
+    void closeClaw();
 
     DCMotor *leftWheel;
     DCMotor *rightWheel;
+    ServoMotor *clawServo;
+    ServoMotor *sonarServo;
     SonarSensor *sonar;
     /*Camera camera;
     FlexSensor flex;

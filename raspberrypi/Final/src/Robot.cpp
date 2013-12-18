@@ -5,6 +5,7 @@ Robot::Robot()
 	wiringPiSetup();
 
 	// Initialize DCMotors for left and right wheels
+
 	leftWheel = new DCMotor(0,19);
 	rightWheel = new DCMotor(4,5);
 
@@ -12,6 +13,7 @@ Robot::Robot()
 	sonar = new SonarSensor(7);
 
 	// TODO:: Initialize claw system: servo, flex senesor
+	clawServo = new ServoMotor(1); // Servo 1 = wiringPi pin 7
 
 	// TODO:: Initialize compass
 }
@@ -76,4 +78,16 @@ int Robot::lookLeft()
 int Robot::lookRight()
 {
 	return sonar->ping();
+}
+
+void Robot::openClaw()
+{
+	clawServo->goToAngle(15);
+}
+
+void Robot::closeClaw()
+{
+	clawServo->goToAngle(0);
+}
+}
 }
