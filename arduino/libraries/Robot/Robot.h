@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "../DCMotor/DCMotor.h"
+#include "../PingSensor/PingSensor.h"
 #include <Servo.h> 
 
 #define FORWARD 1
@@ -27,11 +28,7 @@ class Robot
     DCMotor* leftWheel;
     DCMotor* rightWheel;
     Servo sonarServo;
-    SonarSensor* sonar;
-
-    /*
-    FlexSensor flex;
-    CompassModule compass;*/
+    PingSensor* sonar;
     
   private:
     // no private members yet

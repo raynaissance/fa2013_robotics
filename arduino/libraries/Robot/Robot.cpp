@@ -3,15 +3,13 @@
 
 Robot::Robot()
 {
-	wiringPiSetup();
-
 	// Initialize DCMotors for left and right wheels
 	leftWheel = new DCMotor(7,8,6);
 	rightWheel = new DCMotor(12,13,5);
 
 	// TODO:: Initialize vision system: servo, sonar, and camera
 	sonarServo.attach(3);
-	sonar = new SonarSensor(2);
+	sonar = new PingSensor(2);
 
 	// TODO:: Initialize claw system: servo, flex senesor
 
@@ -26,19 +24,14 @@ void Robot::stop()
 
 void Robot::moveForward(int velocity)
 {
-	leftWheel->moveMotor(abs(velocity));
-	rightWheel->moveMotor(abs(velocity));
+	leftWheel->go(abs(velocity), FORWARD);
+	rightWheel->go(abs(velocity));
 }
 
 void Robot::moveBackward(int velocity)
 {
-	if(velocity > 0) {
-		leftWheel->moveMotor(-velocity);
-		rightWheel->moveMotor(-velocity);
-	} else {
-		leftWheel->moveMotor(velocity);
-		rightWheel->moveMotor(velocity);
-	}
+	leftWheel->go(-1*abs(velocity));
+	rightWheel->go(-1*abs(velocity));
 }
 
 void Robot::turnLeft(int speed)
@@ -53,29 +46,35 @@ void Robot::turnRight(int speed)
 
 void Robot::spinLeft(int leftSpeed, int rightSpeed)
 {
-	leftWheel->moveMotor((-1)*leftSpeed);
-	rightWheel->moveMotor(rightSpeed);
+	leftWheel->go((-1)*leftSpeed);
+	rightWheel->go(rightSpeed);
 
 }
 
 void Robot::spinRight(int leftSpeed, int rightSpeed)
 {
 	//leftWheel->moveWheel(leftSpeed);
-	rightWheel->moveMotor(-rightSpeed);
+	rightWheel->go(-rightSpeed);
 	//delay(300);
 }
 
 long Robot::lookForward()
 {
+	sonarServo.write(90);
+	delay(500);
 	return sonar->ping();
 }
 
 long Robot::lookLeft()
 {
+	sonarServo.write(0);
+	delay(500);
 	return sonar->ping();
 }
 
 long Robot::lookRight()
 {
+	sonarServo.write(180);
+	delay(500);
 	return sonar->ping();
 }

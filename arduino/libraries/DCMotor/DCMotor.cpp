@@ -19,9 +19,11 @@ void DCMotor::stop()
   	digitalWrite(motorE, LOW);
 }
 
-void DCMotor::go(int speed, int direction)
+void DCMotor::go(int speed)
 {
-	if (direction == FORWARD)
+	speed = speed*255/100;
+	
+	if (speed > 0)
 	{
 		digitalWrite(motorA, HIGH);
 		digitalWrite(motorB, LOW);
