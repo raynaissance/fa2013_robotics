@@ -21,9 +21,9 @@ class Robot
     void turnRight(int speed);
     void spinLeft(int leftSpeed, int rightSpeed);
     void spinRight(int leftSpeed, int rightSpeed);
-    int lookForward();
-    int lookLeft();
-    int lookRight();
+    long lookForward();
+    long lookLeft();
+    long lookRight();
 
     DCMotor* leftWheel;
     DCMotor* rightWheel;

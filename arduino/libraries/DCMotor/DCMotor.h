@@ -6,7 +6,6 @@
 class DCMotor
 {
   public:
-    DCMotor();
     DCMotor(int mA, int mB, int mE);
     void stop();
     void go(int speed);

@@ -10,10 +10,6 @@ Robot::Robot()
 	// TODO:: Initialize vision system: servo, sonar, and camera
 	sonarServo.attach(3);
 	sonar = new PingSensor(2);
-
-	// TODO:: Initialize claw system: servo, flex senesor
-
-	// TODO:: Initialize compass
 }
 
 void Robot::stop()
@@ -24,7 +20,7 @@ void Robot::stop()
 
 void Robot::moveForward(int velocity)
 {
-	leftWheel->go(abs(velocity), FORWARD);
+	leftWheel->go(abs(velocity));
 	rightWheel->go(abs(velocity));
 }
 
@@ -62,19 +58,19 @@ long Robot::lookForward()
 {
 	sonarServo.write(90);
 	delay(500);
-	return sonar->ping();
+	return sonar->readCentimeters();
 }
 
 long Robot::lookLeft()
 {
 	sonarServo.write(0);
 	delay(500);
-	return sonar->ping();
+	return sonar->readCentimeters();
 }
 
 long Robot::lookRight()
 {
 	sonarServo.write(180);
 	delay(500);
-	return sonar->ping();
+	return sonar->readCentimeters();
 }
